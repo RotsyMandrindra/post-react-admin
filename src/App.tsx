@@ -1,6 +1,6 @@
-import { Admin, Resource } from 'react-admin';
+import { Admin, Resource, ShowGuesser } from 'react-admin';
 
-import { dataProvider } from './dataProvider';
+import dataProvider from './dataProvider';
 import CustomLayout from './layout';
 import { PostList } from './posts/postList';
 import { PostEdit } from './posts/postEdit';
@@ -11,7 +11,7 @@ import { CommentCreate } from './comments/commentCreate';
 
 export const App = () => (
     <Admin dataProvider={dataProvider} layout={CustomLayout}>
-        <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate} show={PostList} />
-        <Resource name="comments" list={CommentList} edit={CommentEdit} create={CommentCreate} show={CommentList} />
+        <Resource name="Posts" list={PostList} edit={PostEdit} show={PostList} create={PostCreate}/>
+        <Resource name="Comments" list={CommentList} show={ShowGuesser} edit={CommentEdit} create={CommentCreate} />
     </Admin>
 );

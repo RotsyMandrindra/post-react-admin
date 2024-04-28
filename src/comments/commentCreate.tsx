@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { Datagrid, TextField, EmailField, Create } from 'react-admin';
+import { Create, SimpleForm, TextInput, required } from 'react-admin';
 
 export const CommentCreate: React.FC = (props) => (
  <Create {...props}>
-    <Datagrid rowClick="edit">
-      <TextField source="id" />
-      <TextField source="name" />
-      <EmailField source="email" />
-    </Datagrid>
+    <SimpleForm>
+      <TextInput source="name" validate={required()} />
+      <TextInput source="email" validate={required()} />
+      <TextInput source="body" validate={required()} />
+    </SimpleForm>
  </Create>
 );
 
